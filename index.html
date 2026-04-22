@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ikeda.simulator — 학습용</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="stage"></canvas>
+
+  <aside class="hud" id="hud">
+    <header class="hud__header">
+      <div>
+        <div class="hud__title">ikeda.simulator</div>
+        <div class="hud__tag">ryoji ikeda — 작품 원리 학습 도구</div>
+      </div>
+      <span class="hud__sub" id="fps">00.00 fps</span>
+    </header>
+
+    <section class="hud__section">
+      <h2 class="hud__label">01 · mode / 모드 선택</h2>
+      <p class="hud__hint">각 모드는 이케다의 대표작을 단순화해 재현합니다. 버튼을 눌러 전환하고, 아래 설명을 읽어보세요.</p>
+      <div class="hud__modes" id="modes">
+        <button class="mode" data-mode="test-pattern">01 test_pattern</button>
+        <button class="mode" data-mode="data-matrix">02 data.matrix</button>
+        <button class="mode" data-mode="sine-wave">03 sine_wave</button>
+        <button class="mode" data-mode="spectra">04 spectra</button>
+        <button class="mode" data-mode="glitch">05 +/- glitch</button>
+      </div>
+    </section>
+
+    <section class="hud__section hud__section--explain">
+      <h2 class="hud__label">02 · about this mode / 이 모드는?</h2>
+      <div class="explain" id="explain">
+        <div class="explain__title" id="explain-title">—</div>
+        <div class="explain__ref" id="explain-ref">reference: —</div>
+        <p class="explain__body" id="explain-body">모드를 선택하면 설명이 나타납니다.</p>
+        <div class="explain__principle">
+          <div class="explain__subtitle">원리 · how it works</div>
+          <p id="explain-principle">—</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="hud__section">
+      <h2 class="hud__label">03 · parameters / 파라미터</h2>
+      <p class="hud__hint">슬라이더를 움직이며 작품의 구성 요소가 어떻게 바뀌는지 관찰하세요.</p>
+      <div class="hud__controls">
+        <label class="ctrl">
+          <span class="ctrl__name">density <em>밀도</em></span>
+          <input type="range" id="density" min="1" max="200" value="60" />
+          <span class="ctrl__val" id="density-val">060</span>
+          <span class="ctrl__desc">화면을 채우는 요소의 개수 (점, 선, 숫자 등)</span>
+        </label>
+        <label class="ctrl">
+          <span class="ctrl__name">speed <em>속도</em></span>
+          <input type="range" id="speed" min="0" max="200" value="100" />
+          <span class="ctrl__val" id="speed-val">100</span>
+          <span class="ctrl__desc">시간 흐름 배속. 0이면 정지, 200이면 2배속</span>
+        </label>
+        <label class="ctrl">
+          <span class="ctrl__name">contrast <em>대비</em></span>
+          <input type="range" id="contrast" min="0" max="100" value="100" />
+          <span class="ctrl__val" id="contrast-val">100</span>
+          <span class="ctrl__desc">흑백 대비 강도. 이케다 특유의 극단적 모노크롬</span>
+        </label>
+        <label class="ctrl">
+          <span class="ctrl__name">glitch <em>글리치</em></span>
+          <input type="range" id="glitch" min="0" max="100" value="20" />
+          <span class="ctrl__val" id="glitch-val">020</span>
+          <span class="ctrl__desc">무작위 노이즈·어긋남 강도</span>
+        </label>
+        <label class="ctrl">
+          <span class="ctrl__name">frequency <em>주파수</em></span>
+          <input type="range" id="frequency" min="40" max="8000" value="440" />
+          <span class="ctrl__val" id="frequency-val">00440hz</span>
+          <span class="ctrl__desc">사운드 음높이(Hz). 440 = 표준 A음</span>
+        </label>
+        <label class="ctrl">
+          <span class="ctrl__name">volume <em>음량</em></span>
+          <input type="range" id="volume" min="0" max="100" value="0" />
+          <span class="ctrl__val" id="volume-val">000</span>
+          <span class="ctrl__desc">주의: 이케다 사운드는 극저/극고역을 씁니다. 낮게 시작하세요</span>
+        </label>
+      </div>
+    </section>
+
+    <section class="hud__section">
+      <h2 class="hud__label">04 · audio / 사운드</h2>
+      <p class="hud__hint">이케다는 사인파·노이즈 같은 "순수한" 파형을 재료로 씁니다.</p>
+      <div class="hud__audio">
+        <button class="btn" id="audio-toggle">sound: off</button>
+        <div class="hud__wave" id="waveform-select">
+          <button class="wave" data-wave="sine" title="순음, 가장 단순한 파형">sine</button>
+          <button class="wave" data-wave="square" title="사각파, 홀수 배음">square</button>
+          <button class="wave" data-wave="sawtooth" title="톱니파, 모든 배음 포함">saw</button>
+          <button class="wave" data-wave="noise" title="화이트 노이즈, 모든 주파수">noise</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="hud__footer">
+      <div class="hud__keys">[1-5] 모드 · [space] 일시정지 · [f] 풀스크린 · [h] HUD 토글 · [s] 사운드</div>
+      <div class="hud__meta">
+        <span id="mode-meta">01 / test_pattern</span>
+        <span id="time-meta">t+00:00:00</span>
+      </div>
+    </footer>
+  </aside>
+
+  <div class="overlay" id="overlay">
+    <div class="overlay__box">
+      <div class="overlay__title">ikeda.simulator</div>
+      <div class="overlay__text">Ryoji Ikeda의 작품 세계를 5개 모드로 학습합니다.</div>
+      <div class="overlay__text overlay__text--small">화면을 클릭하면 사운드가 활성화됩니다 (선택).</div>
+      <button class="overlay__btn" id="overlay-btn">start</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
