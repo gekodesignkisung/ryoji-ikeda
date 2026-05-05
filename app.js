@@ -72,7 +72,7 @@
   // ---------- Mode metadata (학습용 설명) ----------
   const MODES = {
     "test-pattern": {
-      label: "01 / test_pattern",
+      label: "test_pattern",
       title: "test pattern",
       ref: "ref: Ryoji Ikeda — test pattern series (2008–)",
       body:
@@ -81,7 +81,7 @@
         "캔버스를 가로 N개의 셀로 나누고, 각 셀에 0(검정) 또는 1(흰색)을 무작위·주기적으로 할당. density는 셀 개수를, speed는 패턴 변화 속도를 결정합니다. 사운드와 동기화하면 음의 진폭이 패턴의 밀도를 제어합니다.",
     },
     "data-matrix": {
-      label: "02 / data.matrix",
+      label: "data.matrix",
       title: "data.matrix",
       ref: "ref: datamatics, data.tron (2006–2008)",
       body:
@@ -90,7 +90,7 @@
         "각 셀에 16진수/2진수/0-9 숫자를 무작위로 그립니다. 일부 셀은 시간 경과에 따라 \"흐르는\" 컬럼(매트릭스 효과의 미니멀 버전)을 형성. 글리치 파라미터를 올리면 셀이 일시적으로 어긋나거나 반전됩니다.",
     },
     "sine-wave": {
-      label: "03 / sine_wave",
+      label: "sine_wave",
       title: "sine_wave",
       ref: "ref: +/- (1996), 0°C (1998), dataplex (2005)",
       body:
@@ -99,7 +99,7 @@
         "y = sin(2π · f · t) 식을 시간축에 따라 그립니다. frequency 파라미터가 f를 직접 제어. 여러 사인파를 다른 주파수로 겹치면 비트(beating) 현상이 나타납니다 — 이케다가 자주 쓰는 청각적 트릭이에요.",
     },
     spectra: {
-      label: "04 / spectra",
+      label: "spectra",
       title: "spectra",
       ref: "ref: spectra II–IX, supersymmetry (CERN, 2014)",
       body:
@@ -108,7 +108,7 @@
         "N개의 점을 무작위로 배치 후, 각 점이 결정론적 패턴(노이즈 필드, 회전, 격자 어트랙터)에 따라 위치 갱신. density로 점 개수, speed로 흐름 속도. 점 자체는 1px이지만 군집이 패턴을 이룹니다.",
     },
     glitch: {
-      label: "05 / +/- glitch",
+      label: "+/- glitch",
       title: "+/- glitch",
       ref: "ref: +/-, formula, micro-distortion works",
       body:

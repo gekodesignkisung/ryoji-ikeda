@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ikeda.simulator — 학습용</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -22,11 +26,11 @@
       <h2 class="hud__label">01 · mode / 모드 선택</h2>
       <p class="hud__hint">각 모드는 이케다의 대표작을 단순화해 재현합니다. 버튼을 눌러 전환하고, 아래 설명을 읽어보세요.</p>
       <div class="hud__modes" id="modes">
-        <button class="mode" data-mode="test-pattern">01 test_pattern</button>
-        <button class="mode" data-mode="data-matrix">02 data.matrix</button>
-        <button class="mode" data-mode="sine-wave">03 sine_wave</button>
-        <button class="mode" data-mode="spectra">04 spectra</button>
-        <button class="mode" data-mode="glitch">05 +/- glitch</button>
+        <button class="mode" data-mode="test-pattern">test_pattern</button>
+        <button class="mode" data-mode="data-matrix">data.matrix</button>
+        <button class="mode" data-mode="sine-wave">sine_wave</button>
+        <button class="mode" data-mode="spectra">spectra</button>
+        <button class="mode" data-mode="glitch">+/- glitch</button>
       </div>
     </section>
 
@@ -118,6 +122,6 @@
     </div>
   </div>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=2"></script>
 </body>
 </html>
